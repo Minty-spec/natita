@@ -17,8 +17,8 @@ const AudioCtl = {
     if(!this.audio) return;
 
     this.audio.loop = true;
-    this.audio.volume = 0.5;       // default 50%
-    this.last = 0.5;               // remembered level for unmute
+    this.audio.volume = 0.0;       // default 50%
+    this.last = 0.0;               // remembered level for unmute
 
     if(this.slider){
       this.slider.value = 50;
@@ -54,7 +54,7 @@ const AudioCtl = {
       this.audio.volume = 0;
       if(this.slider) this.slider.value = 0;
     } else {
-      const v = this.last || 0.0;
+      const v = this.last || 0.5;
       this.audio.volume = v;
       if(this.slider) this.slider.value = Math.round(v * 100);
     }
