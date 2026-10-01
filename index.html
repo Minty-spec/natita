@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Natita — Workspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=32" />
+</head>
+<body>
+  <!-- ===================== AMBIENT ROOM / LIGHTING ===================== -->
+  <div class="room">
+    <div class="room__glow"></div>
+    <div class="room__vignette"></div>
+    <div class="wall-art" aria-hidden="true">
+      <div class="wall-art__frame">
+        <img src="assets/wall.png?v=32" alt="" onerror="this.closest('.wall-art').remove()" />
+      </div>
+      <!-- rubber duck perched on top of the picture frame -->
+      <div class="wall-duck obj--duck" data-obj="duck" title="Rubber duck">
+        <div class="duck">
+          <span class="duck__body"></span>
+          <span class="duck__head"></span>
+          <span class="duck__beak"></span>
+          <span class="duck__eye"></span>
+          <span class="duck__quack">quack!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== THE 3D DESK STAGE ========================== -->
+  <main class="stage" id="stage">
+    <div class="world" id="world">
+
+      <div class="desk">
+        <div class="desk__surface"></div>
+        <div class="desk__edge"></div>
+      </div>
+
+      <div class="desk-objects" id="deskObjects">
+
+        <!-- Cables running flat on the desk from the laptop to the monitor -->
+        <svg class="cables" viewBox="0 0 1040 620" preserveAspectRatio="none" aria-hidden="true">
+          <path class="cable cable--shadow" d="M250 318 C 380 378, 520 300, 626 262" />
+          <path class="cable cable--shadow" d="M272 328 C 402 394, 548 322, 648 268" />
+          <path class="cable cable--video" d="M250 318 C 380 378, 520 300, 626 262" />
+          <path class="cable cable--power" d="M272 328 C 402 394, 548 322, 648 268" />
+          <circle class="cable__plug" cx="626" cy="262" r="5" />
+          <circle class="cable__plug" cx="648" cy="268" r="5" />
+        </svg>
+
+        <!-- ======= Lenovo Legion external monitor (the hero display) ======= -->
+        <div class="obj obj--monitor" data-obj="monitor" id="monitor" title="Open">
+          <div class="obj__shadow obj__shadow--monitor"></div>
+          <div class="stand monitor">
+            <div class="monitor__screen">
+              <div class="monitor__ui">
+                <div class="mui__bar"><span class="mui__dot"></span><span class="mui__clock">09:41</span></div>
+                <div class="mui__body">
+                  <div class="mui__win mui__win--a"><span></span><span></span><span class="s"></span></div>
+                  <div class="mui__win mui__win--b"><span></span><span class="s"></span></div>
+                  <div class="mui__win mui__win--c"></div>
+                </div>
+                <div class="mui__dock"><i></i><i></i><i></i><i></i></div>
+              </div>
+              <span class="monitor__reflection"></span>
+              <span class="monitor__brand">LEGION</span>
+            </div>
+            <div class="monitor__neck"></div>
+            <div class="monitor__foot"></div>
+          </div>
+        </div>
+
+        <!-- External keyboard in front of the monitor -->
+        <div class="obj obj--keyboard" data-obj="keyboard" title="Keyboard">
+          <div class="obj__shadow"></div>
+          <div class="flat keyboard">
+            <span class="keyboard__row"></span>
+            <span class="keyboard__row"></span>
+            <span class="keyboard__row"></span>
+            <span class="keyboard__space"></span>
+          </div>
+        </div>
+
+        <!-- Phone lying on the desk -->
+        <div class="obj obj--phone" data-obj="phone" title="Phone">
+          <div class="obj__shadow"></div>
+          <div class="flat phone">
+            <span class="phone__screen">
+              <span class="phone__time">9:41</span>
+              <span class="phone__dots"><i></i><i></i><i></i></span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Owner name plate (folded place card, under the lamp) -->
+        <div class="obj obj--namecard" data-obj="namecard" title="Natita">
+          <div class="obj__shadow"></div>
+          <div class="namecard">
+            <div class="namecard__panel namecard__front">
+              <span class="namecard__name">Natita</span>
+              <span class="namecard__role">workspace</span>
+            </div>
+            <div class="namecard__panel namecard__back"></div>
+          </div>
+        </div>
+
+        <!-- Notepad lying flat on the desk -->
+        <div class="obj obj--papers" data-obj="papers" title="Notes">
+          <div class="obj__shadow"></div>
+          <div class="flat papers">
+            <div class="paper paper--3"></div>
+            <div class="paper paper--2"></div>
+            <div class="paper paper--1">
+              <span class="paper__line"></span>
+              <span class="paper__line"></span>
+              <span class="paper__line short"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pen lying flat -->
+        <div class="obj obj--pen" data-obj="pen" title="A pen">
+          <div class="flat pen">
+            <span class="pen__tip"></span>
+            <span class="pen__body"></span>
+            <span class="pen__cap"></span>
+          </div>
+        </div>
+
+        <!-- Coffee mug (stands upright) -->
+        <div class="obj obj--mug" data-obj="mug" title="Coffee">
+          <div class="obj__shadow"></div>
+          <div class="stand mug">
+            <span class="mug__body"></span>
+            <span class="mug__handle"></span>
+          </div>
+        </div>
+
+        <!-- Mouse lying flat -->
+        <div class="obj obj--mouse" data-obj="mouse" title="Mouse">
+          <div class="obj__shadow"></div>
+          <div class="flat mouse">
+            <span class="mouse__split"></span>
+            <span class="mouse__wheel"></span>
+          </div>
+        </div>
+
+        <!-- Desk lamp (stands upright, back-right) -->
+        <div class="obj obj--lamp" data-obj="lamp" title="Lamp">
+          <div class="obj__shadow"></div>
+          <div class="stand lamp">
+            <span class="lamp__glow"></span>
+            <span class="lamp__base"></span>
+            <span class="lamp__pole"></span>
+            <span class="lamp__head"></span>
+          </div>
+        </div>
+
+        <!-- Potted plant -->
+        <div class="obj obj--plant" data-obj="plant" title="Plant">
+          <div class="obj__shadow"></div>
+          <div class="stand plant">
+            <span class="plant__leaf plant__leaf--l"></span>
+            <span class="plant__leaf plant__leaf--r"></span>
+            <span class="plant__leaf plant__leaf--c"></span>
+            <span class="plant__pot"></span>
+          </div>
+        </div>
+
+        <!-- Language toggle — a little button standing on the desk by the card -->
+        <div class="obj obj--langchip" data-obj="langchip" id="langChip" title="EN / RU">
+          <div class="obj__shadow"></div>
+          <div class="stand langchip">
+            <span class="langchip__text">RU</span>
+          </div>
+        </div>
+
+        <!-- ============ LAPTOP (main interactive object) ============ -->
+        <div class="obj obj--laptop" data-obj="laptop" id="laptop" title="Click to open">
+          <div class="obj__shadow obj__shadow--laptop"></div>
+          <div class="laptop">
+            <!-- base lies flat on the desk -->
+            <div class="laptop__base">
+              <div class="laptop__keyboard"></div>
+              <div class="laptop__trackpad"></div>
+            </div>
+            <!-- lid stands up from the hinge, screen facing the viewer -->
+            <div class="laptop__lid">
+              <div class="laptop__bezel">
+                <span class="laptop__camera"></span>
+                <div class="miniscreen" id="miniScreen">
+                  <div class="miniscreen__wallpaper"></div>
+                  <div class="miniscreen__off">
+                    <span class="miniscreen__power">&#9211;</span>
+                    <span class="miniscreen__hint">Click to power on</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+
+  <!-- ===================== THE OS (interactive desktop) =============== -->
+  <!-- Fixed layer that scales up from the laptop when you "enter". -->
+  <section class="os" id="os" aria-hidden="true">
+    <div class="os__frame">
+      <div class="os__bezel">
+        <span class="os__camera"></span>
+
+        <div class="os__screen" id="osScreen">
+          <!-- boot overlay -->
+          <div class="boot" id="boot">
+            <div class="boot__logo"></div>
+            <div class="boot__bar"><span></span></div>
+          </div>
+
+          <!-- wallpaper + glow -->
+          <div class="wallpaper"></div>
+
+          <!-- top bar -->
+          <div class="topbar">
+            <div class="topbar__left">
+              <span class="topbar__dot"></span> <span class="topbar__os">Natita OS</span>
+            </div>
+            <div class="topbar__right">
+              <div class="volume" id="volume" title="Volume">
+                <button class="volume__btn" id="volumeBtn" aria-label="Mute / unmute">
+                  <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
+                    <path class="vol-spk" d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/>
+                    <path class="vol-wave" d="M15.5 8.5a4 4 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    <path class="vol-wave" d="M18 6a7.5 7.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    <path class="vol-mute" d="M16 9.5l5 5M21 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  </svg>
+                </button>
+                <input class="volume__slider" id="volumeSlider" type="range" min="0" max="100" value="50" aria-label="Volume"/>
+              </div>
+              <button class="lang-toggle" id="langToggle" title="EN / RU" aria-label="Switch language">RU</button>
+              <span id="clock">--:--</span>
+            </div>
+          </div>
+
+          <!-- profile widget -->
+          <div class="profile" id="profile"></div>
+
+          <!-- desktop icons -->
+          <div class="icons" id="icons"></div>
+
+          <!-- windows get mounted here -->
+          <div class="windows" id="windows"></div>
+
+          <!-- dock / taskbar -->
+          <div class="dock" id="dock"></div>
+        </div>
+
+        <div class="os__glass"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step back button (visible while inside the laptop) -->
+  <button class="step-back" id="stepBack" aria-label="Step back from the desk">
+    <span class="step-back__arrow">&larr;</span> <span class="step-back__label">Step back</span>
+  </button>
+
+  <!-- Background music (starts when you enter the laptop; default volume 50%) -->
+  <audio id="bgAudio" src="https://files.catbox.moe/ck7wsv.mp3" loop preload="auto"></audio>
+
+  <!-- ===================== SCRIPTS (modular) ========================= -->
+  <script src="js/config.js?v=32"></script>
+  <script src="js/icons.js?v=32"></script>
+  <script src="js/apps.js?v=32"></script>
+  <script src="js/i18n.js?v=32"></script>
+  <script src="js/windows.js?v=32"></script>
+  <script src="js/desktop.js?v=32"></script>
+  <script src="js/audio.js?v=32"></script>
+  <script src="js/scene.js?v=32"></script>
+  <script src="js/main.js?v=32"></script>
+</body>
+</html>
