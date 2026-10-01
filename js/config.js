@@ -73,9 +73,7 @@ const CONFIG = {
 
   /* ----- Projects (names/tags/descriptions = CONTENT) ------------------- */
   projects: [
-    { name: "Roblox Builds",  tag: "Game design", description: "A collection of maps and experiences crafted in Roblox Studio.", accent: "#8fb3ad" },
-    { name: "Pixel Dreams",   tag: "Art",         description: "Small pixel-art pieces and UI concepts made for fun.",           accent: "#8fb3ad" },
-    { name: "This Workspace", tag: "Web",         description: "The interactive desk you're exploring right now.",               accent: "#8fb3ad" },
+    { name: "Ларпер",  tag: "Помошник", description: "Голосовой помошник на опенкод", accent: "#8fb3ad" },
   ],
   projectsHead: { title: "Projects", subtitle: "" },     // interface (filled from i18n)
 
