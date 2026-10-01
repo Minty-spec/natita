@@ -54,7 +54,7 @@ const AudioCtl = {
       this.audio.volume = 0;
       if(this.slider) this.slider.value = 0;
     } else {
-      const v = this.last || 0.5;
+      const v = this.last || 0.0;
       this.audio.volume = v;
       if(this.slider) this.slider.value = Math.round(v * 100);
     }
